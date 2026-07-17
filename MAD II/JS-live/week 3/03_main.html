@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="./05_style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+    <style>
+        .dangerClass{
+            color: brown;
+        }
+        .green{
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h2>Task Manager</h2>
+
+        <label for="mytask">Enter Your Task : </label>
+        <input type="text" id="mytask" v-model="task">
+        <button v-on:click="addTask" :class="button">Add+</button><br>
+        <span :class="{dangerClass:danger, green: green}" >{{ info }}</span>
+
+
+        <h3>My Daily Tasks</h3>
+        <h4 v-if="mytasks.length === 0">No new Task</h4>
+        <!-- <ul v-else>
+            <li v-for="task in mytasks">  {{task}} </li>
+        </ul> -->
+        <table v-else >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Task Name</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="task in mytasks">
+                    <td>{{task.id}}</td>
+                    <td>{{task.name}}</td>
+                    <td v-if="!task.isCompleted">Pending</td>
+                    <td v-else>Completed</td>
+                    <td v-if="!task.isCompleted"><button @click="markComplete(task.id)">Mark as Completed</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <h3>Compeleted Tasks : {{completedTasks}}</h3>
+        <h3>Pending Tasks : {{pendingTasks}}</h3>
+    </div>
+    <script src="./04_script.js"></script>
+</body>
+
+</html>

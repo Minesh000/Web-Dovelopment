@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veu JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+</head>
+<body>
+    <!-- <div id="app" :height="height">{{  message }}</div> -->
+
+    <!-- veu directive v-bind -->
+    <!-- <div id="app-2">
+       <div id="abc" class="pqr" v-bind:style="val">{{message}}</div>
+       <span :title="message">
+           Hover tour mouse over me for a few seconds
+           to see my dinamically bound title!
+       </span>
+    </div> -->
+
+    <!-- Conditions in template ' v-if ' -->
+    <!-- <div id="app-3">
+        <span v-if="seen">Now you see me</span>
+    </div> -->
+
+    <!-- Loops in template  -->
+    <!-- <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">{{ todo.text }}</li>
+            <span>{{ todos.length }}</span>
+        </ol>
+    </div> -->
+    
+    <!-- user input -->
+    <!-- <div id="app-5">
+        <p><h2>{{message}}</h2></p>
+        <span>{{message}}</span>
+        <input type="date" v-model="message">
+    </div> -->
+
+    <!-- user event -->
+    <!-- <div id="app-6">
+        <input v-model="message">
+        <button v-on:click="reverseMessage()">Reverse Message</button>
+        <p>{{message}}</p>
+    </div> -->
+
+    <!-- derived values -->
+    <!-- <div id="app-7">
+        {{fullname}} <br>
+        {{reversed}}
+    </div> -->
+
+    <div id="app-8">
+        <input v-model="message"> <br>
+        {{message}} <br>
+        {{info}}
+    </div>
+
+
+    <script src="./02_vuejs_part1.js"></script>
+</body>
+</html>

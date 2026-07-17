@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Component App</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+    <style>
+        .comp-style{
+            color: red;
+            background-color: aquamarine;
+            border: 5px solid rgb(163, 113, 113);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+        <h4>All Likes:{{allLikes}}</h4>
+        <blog v-on:liked="addLike"></blog>
+        <blog attr1="value 1" attr2="Value 2" class="comp-style" v-on:liked="addLike">This is external content.</blog>
+        <blog v-bind:attr1="compMessage" 
+        attr2="Value 2" 
+        class="comp-style"
+        v-on:liked="addLike">This is external content.</blog>
+    </div>
+
+    <script src="./02_script.js"></script>
+</body>
+</html>
