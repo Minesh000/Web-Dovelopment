@@ -14,12 +14,56 @@
             <div class="card-body">
                 <h5>{{ note.title }}</h5>
                 <p>{{ note.content }}</p>
-                <p>ID: {{ note.id }}</p>
+                <p>ID: {{note.id}}</p>
             </div>
         </div>
     </div>
     
 
-    <script src="./script.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: "Jhone Doe",
+                notes: []
+            },
+            methods: {
+                fetchNotes: function () {
+                    fetch("http://127.0.0.1:5000/api/data")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        this.notes = data;
+                        console.log("Fetched notes:", this.notes);
+                    })
+                },
+                addNotes: function () {
+                    fetch("http://127.0.0.1:5000/api/data", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            id: 3,
+                            title: "New Note",
+                            content: "This is a new note.",
+                        })
+                    }
+                    ).then((response) => response.json())
+                    .then((data) => {
+                        console.log("Added note:", data);
+                        this.fetchNotes();
+                        }
+                    )
+
+                }  
+            },
+
+            mounted: function () {
+                this.fetchNotes()
+                this.addNotes()
+            }
+ 
+        })
+    </script>
 </body>
 </html>
