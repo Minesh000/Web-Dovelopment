@@ -10,7 +10,7 @@ const routes = [
         path: "/about", component: about,
         children: [
         {path: "/about/:username", component: aboutUser},
-        {path: "/about/:password/:username", component: aboutPassword},
+        {path: "/about/:username/:password", component: aboutPassword},
         ]
     },
     // {path:"*", redirect:"/"},
