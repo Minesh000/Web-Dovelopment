@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueX with CDN</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuex@3.6.2/dist/vuex.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2 >Count: {{ computedCount }}</h2>
+        <h2 >DoubleCount: {{ doubleCount }}</h2>
+        <h2 >TripleCount: {{ tripleCount }}</h2>
+        <button @click="incrementCount">Increment</button>
+        <button @click="incrementCountAsync">IncrementAsync</button>
+        <hr>
+        <likesandshares></likesandshares>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
